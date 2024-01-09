@@ -1,13 +1,13 @@
 ./lib/firmware/postmarketos/ath10k/WCN3990/hw1.0/board-2.bin
-./lib/firmware/qcom/sm8150/a630_sqe.fw
-./lib/firmware/qcom/sm8150/a640_gmu.bin
+./lib/firmware/qcom/a630_sqe.fw
+./lib/firmware/qcom/a640_gmu.bin
 ./lib/firmware/qcom/sm8150/Xiaomi/raphael/a640_zap.mbn
 ./lib/firmware/qcom/sm8150/Xiaomi/raphael/adsp.mbn
 ./lib/firmware/qcom/sm8150/Xiaomi/raphael/adspr.jsn
 ./lib/firmware/qcom/sm8150/Xiaomi/raphael/adspua.jsn
 ./lib/firmware/qcom/sm8150/Xiaomi/raphael/cdsp.mbn
 ./lib/firmware/qcom/sm8150/Xiaomi/raphael/cdspr.jsn
-./lib/firmware/qcom/sm8150/Xiaomi/raphael/goodix_gt9886_cfg_f11.bin
+./lib/firmware/qcom/goodix_gt9886_cfg_f11.bin
 ./lib/firmware/qcom/sm8150/Xiaomi/raphael/ipa_fws.mbn
 ./lib/firmware/qcom/sm8150/Xiaomi/raphael/modem.mbn
 ./lib/firmware/qcom/sm8150/Xiaomi/raphael/modemr.jsn
