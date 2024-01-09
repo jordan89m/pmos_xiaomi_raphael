@@ -1,0 +1,44 @@
+# Reference: <https://postmarketos.org/devicepkg>
+pkgname=device-xiaomi-raphael
+pkgdesc="Xiaomi Redmi K20 Pro"
+pkgver=0.1
+pkgrel=0
+url="https://postmarketos.org"
+license="MIT"
+arch="aarch64"
+_carch="arm64"
+options="!check !archcheck"
+depends="
+	linux-xiaomi-raphael
+	mkbootimg
+	mesa-dri-gallium
+	postmarketos-base
+"
+makedepends="devicepkg-dev"
+source="
+	deviceinfo
+	30-gpu-firmware.files
+"
+
+build() {
+	devicepkg_build $startdir $pkgname
+}
+
+package() {
+	devicepkg_package $startdir $pkgname
+}
+
+mainline_firmware() {
+	pkgdesc="Firmware support packages for mainline kernel"
+	depends="firmware-xiaomi-raphael-adreno"
+	install_if="linux-xiaomi-raphael"
+	mkdir "$subpkgdir"
+
+	install -Dm644 "$srcdir/30-gpu-firmware.files" \
+		"$subpkgdir/etc/postmarketos-mkinitfs/files/30-gpu-firmware.files"
+}
+
+sha512sums="
+0ceccd1e91467f660f4aa9bdccf04a62b3f502eca0689a9afb3e4a2e8159c3a65376bba990c80fb31781731fa48ca6be3c895f50f16980e7006c69de47698578  deviceinfo
+755e266b66ca6b1ef1f7d90ed00da5ea8845113d906218123f8157893af31aaa0301fcf16be37482455e134ac07bf4d614656ea34091a921a7867e5d918aa456  30-gpu-firmware.files
+"
