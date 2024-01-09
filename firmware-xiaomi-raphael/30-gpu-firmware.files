@@ -1,4 +1,3 @@
-  [1/3]                   firmware-oneplus-sdm845/30-gpu-firmware.files
 /lib/firmware/qcom/sm8150/a640_gmu.bin
 /lib/firmware/qcom/sm8150/a630_sqe.fw
 /lib/firmware/qcom/sm8150/Xiaomi/raphael/a640_zap.mbn
