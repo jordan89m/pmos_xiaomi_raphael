@@ -3,36 +3,25 @@ pkgver=20220422
 pkgrel=0
 pkgdesc="Firmware for Xiaomi Redmi K20 Pro"
 arch="aarch64"
-depends="
-	linux-firmware-qcom"
+depends="linux-firmware-qcom"
 url="https://github.com/jordan89m/firmware-xiaomi-raphael"
 arch="aarch64"
 license="proprietary"
 options="!check !strip !archcheck !tracedeps pmb:cross-native"
 
-_version="265d94d76e796281dcf5eb993bfbda70feda122f""
+_version="8b853b8f7bb0715a4f233404f7ed314c3aba3188"
 
 source="$pkgname.tar.gz::$url/archive/$_version.tar.gz
         firmware.files
-        30-gpu-firmware.files"
-subpackages="
-        $pkgname-initramfs:firmware_initramfs"
+"
 
 package() {
         cd "$srcdir/$pkgname-$_version/"
         while IFS="" read -r _i || [ -n "$_i" ]; do
-                install -Dm644 "$_i" "$pkgdir/$_i"
+                [ ! -d $(dirname $_i) ] && mkdir -p $(dirname $_i)
+                echo $_i
+                install -Dm644 $_i "$pkgdir/$_i"
         done < "$srcdir/firmware.files"
-}
-
-firmware_initramfs() {
-        pkgdesc="Files to be included in the initramfs to support osk-sdl"
-        depends="$pkgname"
-        install_if="$pkgname-nonfree-firmware"
-        mkdir "$subpkgdir"
-	mkdir -p "$subpkgdir/usr/share/mkinitfs/files"
-        install -Dm644 "$srcdir/30-gpu-firmware.files" \
-                "$subpkgdir/usr/share/mkinitfs/files/30-gpu-firmware.files"
 }
 
 
